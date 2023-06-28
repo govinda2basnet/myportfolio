@@ -1,0 +1,268 @@
+@import '../../res/colours.scss';
+
+$social-link-colours:
+    // #0072b1,
+    // #171515,
+    // #171515,
+    #0077b5,
+    #55acee,
+    #dd4b39, // Instagram
+;
+
+.app__footer {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    // flex: 1;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    width: 100%;
+    height: 110px auto;
+    // line-height: 24px;
+    // Center the content.
+    align-items: flex-start;
+
+    /* top | right | bottom | left */
+    padding: 2em 7em 1.1em 5em;
+
+    background-color: rgba(155, 155, 155, 0.7);
+
+    @media screen and (max-width: 900px) {
+        /* top | right | bottom | left */
+        padding: 1em 5em 1em 3em;
+    }
+
+
+    &--contents {
+        @media screen and (max-width: 900px) {
+            // padding-left: 40px;
+        }
+
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        // height: 100%;
+        // padding: 5px 0px;
+
+
+        .title {
+            // @media screen and (max-width: 900px) {
+
+            // }
+
+            color: #fff;
+            font-size: 22px;
+            text-transform: uppercase;
+            margin-top: 5px;
+            letter-spacing: 2px
+        }
+
+
+        .quick-links {
+            @media screen and (max-width: 900px) {
+                display: none;
+            }
+
+            width: 70%;
+            color: $white-colour;
+
+
+
+            .page-links {
+                display: flex;
+                flex-direction: row;
+                font-size: 14px;
+                // Remove the generic link styles.
+                list-style: none;
+
+                // Access the nested 'li' component inside of this
+                li {
+                    display: flex;
+                    align-items: center;
+
+
+                    a {
+                        // Lets the user know that is it clickable.
+                        cursor: pointer;
+                        text-decoration: none;
+                        color: $white-colour;
+
+                        &::before {
+                            content: "·";
+                            font-size: 20px;
+                            left: 0;
+                            color: #fff;
+                            display: inline-block;
+                            padding: 0px 5px;
+                        }
+
+                        &:hover {
+                            color: $white-colour;
+                            transform: scale(1.1);
+                            -webkit-transform: scale(1.1);
+                            text-decoration: underline;
+                        }
+                    }
+
+                    &:first-child {
+                        a {
+                            &::before {
+                                content: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .socials {
+            @media screen and (max-width: 900px) {
+                width: 100%;
+                align-items: center;
+            }
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 30%;
+
+            @media screen and (max-width: 900px) {
+                // margin-right: 10px;
+            }
+
+            ul {
+                display: flex;
+                align-items: flex-end;
+
+                li {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 6px;
+
+                    a {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        // Lets the user know that is it clickable.
+                        cursor: pointer;
+
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        background: #33353d;
+                        padding: 7px;
+
+                        transition: 0.3s ease-in;
+
+                        svg {
+                            color: white;
+                            width: 100%;
+                            height: 100%;
+                        }
+
+
+
+
+
+
+
+
+                        // @media screen and (max-width: 900px) {
+                        //     width: 15px;
+                        //     height: 15px;
+                        //     margin-left: 5px;
+                        // }
+
+                        // width: 20px;
+                        // height: 20px;
+                        // margin-left: 15px;
+                        // margin-top: 5px;
+                        // cursor: pointer;
+                        // transition: 0.3s ease-in-out;
+
+                        // svg {
+                        //     color: white;
+                        //     width: 100%;
+                        //     height: 100%;
+                        // }
+                    }
+
+                    @for $i from 1 through length($social-link-colours) {
+                        &:nth-child(#{length($social-link-colours)}n+#{$i}) {
+                            a {
+                                &:hover {
+                                    background: nth($social-link-colours, $i);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    &--baseline {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+
+        .line {
+            position: relative;
+            top: 0;
+            float: right;
+            width: 100%;
+            height: 2px;
+            background: $white-colour;
+            border-radius: 5px;
+            margin: 0.7rem 0rem;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            @media screen and (max-width: 900px) {
+                text-align: center;
+            }
+
+            .copyright {
+                color: $white-colour;
+                margin: 0;
+                letter-spacing: 1.5px;
+
+                @media screen and (max-width: 900px) {
+                    font-size: 10px;
+                }
+
+                // font-size: 12px;
+            }
+
+
+            // .socials {
+            //     @media screen and (max-width: 900px) {
+            //         display: none;
+            //     }
+
+            //     .links {
+            //         display: flex;
+
+            //         &-icon {
+            //             width: 20px;
+            //             height: 20px;
+            //             margin-right: 15px;
+            //             cursor: pointer;
+
+            //             svg {
+            //                 color: white;
+            //                 width: 100%;
+            //                 height: 100%;
+            //             }
+            //         }
+            //     }
+            // }
+        }
+    }
+}

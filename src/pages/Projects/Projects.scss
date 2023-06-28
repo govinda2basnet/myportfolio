@@ -1,0 +1,101 @@
+@import '../../res/colours.scss';
+@import '../../constants/constants.scss';
+
+$count: 8; //[data-count];
+
+.app__projects {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: flex-start;
+    overflow: hidden;
+    margin-bottom: 130px;
+    background: $primary-colour;
+    z-index: 3;
+
+
+    &--title {
+        // cursor: pointer;
+        // padding-top: 20px;
+    }
+
+    &--text {
+        font-size: 18px;
+        // padding-bottom: 10px;
+    }
+
+    &--filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        // margin: 1rem 0rem;
+        margin-bottom: 1rem;
+
+        &-item {
+            padding: 0.5rem 1rem;
+            background: $white-colour;
+            color: $black-colour;
+            border-radius: 15px;
+            flex-direction: row;
+            margin-right: 10px;
+            margin-bottom: .7rem;
+            border: 1.5px solid transparent;
+
+            cursor: pointer;
+
+            &-active {
+                border: 1.5px solid $secondary-colour;
+                box-shadow: 0 0.5em 0.5em -0.4em $secondary-colour;
+                transform: translateY(-0.25em);
+            }
+        }
+    }
+
+
+
+    .project__cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        // max-width: 80%;
+        height: 100%;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        gap: 20px;
+
+
+
+        // @for $i from 1 through length($count) {
+        //     &:nth-child(#{length($count)}n+#{$i}) {
+        //         animation-delay: $i * 10s;
+        //     }
+        // }
+    }
+}
+
+#dark {
+    .app__projects {
+        background: $primary-colour-dark;
+
+        &-title {
+            color: $white-colour;
+        }
+
+        &--filters {
+
+            &-item {
+                background: $black-colour;
+                color: $white-colour;
+
+                &-active {
+                    border: 1.5px solid $secondary-colour-dark;
+                    box-shadow: 0 0.5em 0.5em -0.4em $secondary-colour-dark;
+                }
+            }
+        }
+
+        .project__cards {}
+    }
+}

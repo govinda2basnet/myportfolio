@@ -1,0 +1,98 @@
+@import '../../res/colours.scss';
+
+.app__about {
+    @media screen and (max-width: 550px) {
+        padding-bottom: 20px;
+    }
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-bottom: 50px;
+    background: $primary-colour;
+    z-index: 3;
+
+
+    .bio {
+        display: flex;
+        flex-direction: row;
+
+        @media screen and (max-width: 550px) {
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .info {
+            @media screen and (min-width: 1200px) {
+                padding-right: 30px;
+            }
+        }
+
+        .headshot {
+            @media screen and (min-width: 1200px) {
+                margin-top: -20px;
+            }
+
+            flex-shrink: 0;
+            margin: 20px;
+            height: calc(150px + 6vw);
+            width: calc(150px + 6vw);
+            border: calc(8px + 0.1vw) solid transparent;
+            background: linear-gradient($secondary-colour, $primary-colour);
+            background-origin: border-box;
+            box-sizing: border-box;
+            // box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            overflow: hidden;
+
+            transition: 0.3s ease-in;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center center;
+            }
+
+            // &:hover {
+            //     cursor: pointer;
+            // }
+        }
+    }
+
+    &--text {
+        font-size: 18px;
+        // color: red;
+
+        // padding-bottom: 10px;
+        // line-height: 1.3;
+    }
+}
+
+#dark {
+
+    // div {
+    //     color: $white-colour;
+    // }
+
+    .app__about {
+        background: $primary-colour-dark;
+
+        .bio {
+
+            .headshot {
+                background: linear-gradient($secondary-colour-dark, $primary-colour);
+
+                // img {
+                //     filter: grayscale(25%);
+
+                //     transition: 0.3s ease-in;
+
+                //     &:hover {
+                //         filter: grayscale(0%);
+                //     }
+                // }
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+@import '../../res/colours.scss';
+
+.page {
+    width: 100%;
+
+    header {
+        display: table;
+        width: 100%;
+        margin-bottom: 20px;
+
+        .cell {
+            display: table-cell;
+        }
+
+        .text {
+            width: 1%;
+            padding: 0 10px;
+        }
+    }
+
+}
+
+
+#dark {
+    .page {
+
+        header {
+
+            Line {
+                border-bottom: 3px solid rgba($secondary-colour-dark, 0.4);
+            }
+        }
+    }
+}

@@ -1,0 +1,326 @@
+@import './theme.scss';
+
+
+@font-face {
+    font-family: 'WixMadeforTextRegular';
+    src: local('WixMadeforTextRegular'),
+        url('../assets/fonts/WixMadeforText/WixMadeforDisplayRegular.ttf') format('ttf'),
+}
+
+body {
+    font-family: WixMadeforTextRegular;
+    // background: $background-colour;
+
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+        // display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    // -ms-overflow-style: none;  /* IE and Edge */
+    // scrollbar-width: none;  /* Firefox */
+}
+
+
+
+
+
+
+
+.app__flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // height: 100vh;
+}
+
+.app__pad-hor {
+    /* top | right | bottom | left */
+    padding: 0rem 4rem 0rem 5rem;
+
+    @media screen and (max-width: 550px) {
+        /* top | right | bottom | left */
+        padding: 0rem 1.5rem 0rem 1.5rem;
+    }
+}
+
+.app__full-height {
+    height: 100vh;
+}
+
+.app__page--padtop {
+    padding-top: 100px;
+}
+
+.app__vertical-line {
+    width: 2px;
+    background: $secondary-colour;
+    border-radius: 5px;
+}
+
+.head-text {
+    font-size: 2.75rem;
+    font-weight: 800;
+    text-align: center;
+    color: $black-colour;
+    text-transform: capitalize;
+
+    text-shadow: 0 2px 5px rgba($black-colour, 0.5);
+
+    span {
+        color: $secondary-colour;
+    }
+
+    @media screen and (min-width: 2000px) {
+        font-size: 4rem;
+    }
+
+    @media screen and (max-width: 550px) {
+        // @media screen and (max-width: 450px) {
+        font-size: 1.9rem;
+    }
+}
+
+.p-text {
+    font-size: 0.8rem;
+    // text-align: left;
+    text-align: center;
+    color: $gray-colour;
+    line-height: 1.5;
+
+    @media screen and (min-width: 2000px) {
+        font-size: 1.75rem;
+    }
+}
+
+.bold-text {
+    font-size: 1rem;
+    font-weight: 800;
+    color: $black-colour;
+    text-align: left;
+
+    @media screen and (min-width: 2000px) {
+        font-size: 2rem;
+    }
+
+    @media screen and (max-width: 450px) {
+        font-size: 0.9rem;
+    }
+}
+
+.app__hover-colour-fade {
+    color: $black-colour;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        color: $secondary-colour;
+    }
+}
+
+.app__underline-anim {
+    // Remove the generic text decoration i.e. underline.
+    text-decoration: none;
+    flex-direction: column;
+
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+
+        &::after {
+            transform: scaleX(1);
+            transform-origin: right;
+        }
+    }
+
+    &:after {
+        display: block;
+        content: '';
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 250ms ease-in-out;
+
+        border-bottom: 3px solid $secondary-colour;
+    }
+}
+
+.app__box-shadow-indent {
+    // Doesn't work on all objects.
+    box-shadow:
+        inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+        inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+}
+
+.app__hover-with-shadow {
+    transition: 0.3s ease-out;
+
+    &:hover {
+        box-shadow: 0 0.5em 0.5em -0.4em $secondary-colour;
+        transform: translateY(-0.25em);
+    }
+}
+
+.app__bottom-border {
+    border-bottom: solid 3px $secondary-colour;
+    width: fit-content;
+}
+
+.app__hide-smaller-device {
+    @media screen and (max-width: 550px) {
+        display: none;
+    }
+}
+
+
+
+
+
+#dark {
+
+    .app__vertical-line {
+        background: $secondary-colour-dark;
+    }
+
+    .head-text {
+        color: $white-colour;
+
+        text-shadow: 0 2px 5px rgba($black-colour, 0.5);
+
+        span {
+            color: $secondary-colour-dark;
+        }
+    }
+
+    .app__hover-colour-fade {
+        color: $white-colour;
+
+        &:hover {
+            color: $secondary-colour-dark;
+        }
+    }
+
+    .app__underline-anim {
+
+        &:after {
+            border-bottom: 3px solid $secondary-colour-dark;
+        }
+    }
+
+    .app__hover-with-shadow {
+
+        &:hover {
+            box-shadow: 0 0.5em 0.5em -0.4em $secondary-colour-dark;
+        }
+    }
+
+    .app__bottom-border {
+        border-bottom: solid 3px $secondary-colour-dark;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+// Tooltips
+
+// https://stackoverflow.com/questions/7117073/add-a-tooltip-to-a-div
+// <div className="app__tooltip fade" data-title="Hypertext Markup Language">
+//     <label>Name</label>
+//     <input type="text"/>
+// </div>
+
+
+/* setup tooltips */
+// .app__tooltip {
+//     position: relative;
+// }
+
+// .app__tooltip:before,
+// .app__tooltip:after {
+//     display: block;
+//     position: absolute;
+//     opacity: 0;
+//     pointer-events: none;
+// }
+
+// .app__tooltip:after {
+//     border-right: 6px solid transparent;
+//     border-bottom: 6px solid rgba(0, 0, 0, 0.75);
+//     border-left: 6px solid transparent;
+//     content: '';
+//     top: 20px;
+//     left: 20px;
+// }
+
+// .app__tooltip:before {
+//     background: rgba(0, 0, 0, .75);
+//     border-radius: 2px;
+//     color: #fff;
+//     content: attr(data-title);
+//     font-size: 14px;
+//     padding: 6px 10px;
+//     top: 26px;
+//     white-space: nowrap;
+// }
+
+// /* fade */
+// .app__tooltip.fade:after,
+// .app__tooltip.fade:before {
+//     transform: translate3d(0, -10px, 0);
+//     transition: .15s ease-in-out;
+// }
+
+// .app__tooltip.fade:hover:after,
+// .app__tooltip.fade:hover:before {
+//     opacity: 1;
+//     transform: translate3d(0, 0, 0);
+// }
+
+
+
+
+
+
+
+
+
+// https://stackoverflow.com/questions/8969927/changing-the-tooltip-color-for-a-hyperlink-using-html-and-css
+// This is text before the 
+// <a href="#" className="TT-container">tool tip link<span className="TT-value">tool tip text</span></a> 
+// and this is after it.
+// .TT-container {
+//     position: relative;
+//     // border-bottom: 1px dashed #999999;
+// }
+
+// .TT-value {
+//     display: none;
+//     background: #f8e7c7;
+//     color: black;
+//     border: 1px solid black;
+//     // padding: 3px 5px 3px 5px;
+//     padding: 10px;
+//     white-space: pre;
+//     text-decoration: none;
+//     z-index: 99;
+//     border-radius: 5px;
+// }
+
+// .TT-container {
+//     &:hover {
+//         .TT-value {
+//             position: absolute;
+//             top: 20px;
+//             left: 0px;
+//             display: inline;
+//         }
+//     }
+// }

@@ -1,0 +1,60 @@
+// Fonts
+/* @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap"); */
+// Colours
+@import './res/colours.scss';
+
+
+:root {
+  // --main-white: #dfddd6;
+  // --main-font: 'Stardos Stencil';
+  // /*, cursive; */
+  // /* Transitions for navbar link selection. */
+  // --mainTransition: 0.25s ease-in-out;
+  // /* Transitions for mode (dark/light) selection. */
+  // --modeTransition: 0.25s ease-in-out;
+
+
+  // /* Colours */
+  // --colour-white: #fff;
+  // --colour-black: #000;
+
+  // --colour-lightMode: rgba(237, 242, 248, 1);
+
+
+  // --colour-darkMode: rgba(66, 65, 65, 1);
+
+  // /* color: var(--colour-black); */
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+ul {
+  list-style-type: none;
+  // Remove the generic link styles.
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.new-line {
+  white-space: pre-line;
+}

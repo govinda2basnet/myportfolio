@@ -1,0 +1,35 @@
+.float-button-content {
+    @media screen and (max-width: 550px) {
+        bottom: 0px;
+        right: 0px;
+
+        width: 120px;
+        height: 120px;
+    }
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    width: 100px;
+    height: 100px;
+    background: #2681C6;
+
+    margin: auto;
+
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    box-shadow: 6px 3px 3px grey;
+    cursor: pointer;
+}
+
+.hover-zoom {
+    transition: 0.3s ease 0s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}

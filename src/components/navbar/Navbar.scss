@@ -1,0 +1,232 @@
+@import '../../res/colours.scss';
+@import '../../utils/Animations/animations.scss';
+@import '../../res/mixin.scss';
+
+$count: 5;
+
+.app__navbar {
+    // Full widht of the screen.
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    // Center the content.
+    align-items: center;
+
+    padding: 1rem 2rem;
+
+    // Add a blur
+    @include blur(4px);
+    // box-shadow: 0 0 20px rgba(128, 128, 128, 0);
+
+    // Ensures that it stays at the top of the screen.
+    position: fixed;
+    top: 0;
+    // Ensures the navbar is above the content
+    z-index: 4;
+
+    transition: 0.3s ease-in;
+
+
+
+    .current-tab {
+        color: $secondary-colour;
+        // font-size: 16px;
+        // font-weight: bold;
+    }
+
+
+    &--scroll {
+        // Background colour for the navbar.
+        background: rgba($navbar-colour, 0.85);
+        box-shadow: 0 0 20px rgba(128, 128, 128, 0.5);
+    }
+
+    &--logo {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        animation: fade-in .75s ease-out;
+        animation-fill-mode: both;
+        animation-delay: 1.5s;
+
+        a {
+            color: $black-colour;
+
+            // Remove the generic text decoration i.e. underline.
+            text-decoration: none;
+
+            // text-transform: uppercase;
+            font-size: 24px;
+            font-weight: bold;
+
+            background: transparent;
+        }
+    }
+
+    &--links {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 3px;
+        padding-left: 70px;
+        
+
+        // Access the nested 'li' component inside of this
+        li {
+            @media screen and (max-width: 900px) {
+                display: none;
+            }
+            padding: 0px 5px 5px 5px;
+            margin: 0 1rem;
+            // Lets the user know that is it clickable.
+            cursor: pointer;
+
+            // flex-direction: column;
+
+            // Access the nested 'div' component inside of this
+            // div {
+            //     width: 5px;
+            //     height: 5px;
+            //     background: transparent;
+            //     border-radius: 50%;
+
+            //     margin-bottom: 5px;
+            // }
+
+            // Access the nested 'a' component inside of this
+            a {
+                color: $gray-colour;
+                // text-transform: uppercase;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            @for $i from 1 through $count {
+                &:nth-child(#{$count}n+#{$i}) {
+                    a {
+                        transform-origin: center;
+                        animation: slide-l-fade-In .3s ease-out;
+                        animation-fill-mode: both;
+                        animation-delay: 0.25s + ($i * .15s);
+                    }
+                }
+            }
+        }
+    }
+
+    &--resume {
+        @media screen and (max-width: 900px) {
+            display: none;
+        }
+
+        display: inline-block;
+        padding: 0.3em 1.2em;
+        margin: 0 0.3em 0.3em 0;
+        box-sizing: border-box;
+        color: #000000;
+        text-align: center;
+        text-decoration: none;
+        border: 0.1em solid $gray-colour;
+        border-radius: 20px;
+        overflow: hidden;
+
+        transition: 0.2s ease-in;
+
+        transform-origin: center;
+        animation: slide-l-fade-In .3s 0.55s ease-out;
+        animation-fill-mode: both;
+
+
+        &:hover {
+            color: #FFFFFF;
+
+            &:before {
+                top: 0;
+            }
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s ease-in-out;
+            z-index: -2;
+        }
+
+        &:before {
+            background: $secondary-colour;
+        }
+
+        /*@media all and (max-width:30em) {
+            display: block;
+            margin: 0.4em auto;
+        }*/
+    }
+}
+
+
+
+#dark {
+    .app__navbar {
+        // box-shadow: 0 0 20px rgba($white-colour, 0);
+
+        .current-tab {
+            color: $secondary-colour-dark;
+            // border-bottom: 3px solid $secondary-colour-dark;
+        }
+
+        &--scroll {
+            // Background colour for the navbar.
+            background: rgba($navbar-colour-dark, .85);
+            box-shadow: 0 0 10px rgba($white-colour, 0.5);
+        }
+
+        &--links {
+
+            li {
+                a {
+                    color: $white-colour;
+                }
+            }
+        }
+
+        &--logo {
+            a {
+                // color: $white-colour;
+                filter: invert(100%);
+
+                background: transparent;
+            }
+        }
+
+        &--resume {
+            border: 0.1em solid #FFFFFF;
+            color: #FFFFFF;
+
+            &:hover {
+                // color: #000000;
+            }
+
+            &:before {
+                background: $secondary-colour-dark;
+            }
+        }
+    }
+}
+
+.app__vertical-line {
+    width: 2px;
+    background: $secondary-colour;
+    border-radius: 5px;
+
+    transform-origin: bottom;
+
+    animation: scale-bounce .75s ease-out;
+    animation-fill-mode: both;
+    animation-delay: 1.5s;
+}
